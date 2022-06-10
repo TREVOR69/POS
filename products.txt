@@ -1,0 +1,4 @@
+2130,saf router,router,54,7000
+3130,airtel router,router,-51032,4000
+5130,yu router,router,58,3000
+7130,faiba router,router,56,8000

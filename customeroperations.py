@@ -1,4 +1,3 @@
-import os
 import random
 
 
@@ -10,12 +9,48 @@ def customeroperations():
 
 
 def addcustomer():
-    outfile = open('customer.txt', 'a')
     custid = random.randint(10000, 100000)
     custname = input("ENTER CUSTOMER NAME: ")
-    custphone = int(input("ENTER CUSTOMER PHONE NUMBER: "))
-    outfile.write(str(custid) + " " + custname + " " + str(custphone) + '\n')
-    outfile.close()
+    custphone = input("ENTER CUSTOMER PHONE NUMBER: ")
+
+    z = f'{custid},{custname},{custphone}\n'
+
+    with open('customer.txt', 'a') as outfile:
+        outfile.write(z)
+
+
+def updatecustomer():
+    with open("customer.txt", "r") as s:
+        slist = s.readlines()
+        cid = input("ENTER CUSTOMER ID: ")
+        for Line in slist:
+            if cid in Line:
+                line_index = slist.index(Line)
+
+                user_input = input("ENTER NEW PHONE NUMBER: ")
+                k = Line.split(',')
+                k[2] = user_input
+        s = ','
+        slist[line_index] = s.join(k)
+
+        with open('customer.txt', 'w') as outfile:
+            for Line in slist:
+                outfile.write(Line)
+
+
+def deletecustomer():
+    with open("customer.txt", "r") as s:
+        slist = s.readlines()
+        cid = input("ENTER CUSTOMER ID: ")
+        for Line in slist:
+            if cid in Line:
+                line_index = slist.index(Line)
+
+                slist.pop(line_index)
+
+        with open('customer.txt', 'w') as outfile:
+            for Line in slist:
+                outfile.write(Line)
 
 
 customeroperations()
@@ -25,34 +60,12 @@ while selection != 0:
     if selection == 1:
         addcustomer()
     elif selection == 2:
-        # productoperation()
-        print("option 2 selected. ")
-
+        deletecustomer()
     elif selection == 3:
-        s = open("customer.txt", "r")
-        z = open("temp.txt", "w")
-
-        cid = int(input("ENTER CUSTOMER ID"))
-        f = ' '
-        while f:
-            f = s.readline()
-            l = f.split(" ")
-            if len(f) > 0:
-                if int(l[0]) == cid:
-                    custid = random.randint(10000, 100000)
-                    custname = input("ENTER CUSTOMER NAME: ")
-                    custphone = int(input("ENTER CUSTOMER PHONE NUMBER: "))
-
-                    z.write(str(custid) + " " + custname + " " + str(custphone))
-
-                else:
-                    z.write(f)
-
-            s.close()
-            z.close()
-
-            os.remove("customer.txt")
-            os.rename("temp.txt", "customer.txt")
+        updatecustomer()
+    else:
+        print('WRONG SELECTION! ENTER EITHER 1 OR 2!')
+        break
     customeroperations()
     selection = int(input("choose one option: "))
 
