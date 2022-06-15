@@ -1,25 +1,35 @@
+from productoperation import *
+from customeroperation import *
+from purchaseoperation import *
+from report import *
 
 def menu():
-    print("[1]. Customer Operations")
-    print("[2]. Product Operations")
-    print("[3]. Reports")
-    print("[0]. Exit")
+    loop = 1
+    while loop:
+        print("[1]. Customer Operations")
+        print("[2]. Product Operations")
+        print("[3]. Sell Operations ")
+        print("[4]. Reports ")
+        print("[5]. Exit")
+
+        selection = int(input("Choose One Option: "))
+        if selection == 1:
+            customeroperations()
+
+        elif selection == 2:
+            productoperations()
+
+        elif selection == 3:
+            purchasemenu()
+
+        elif selection == 4:
+            reportmenu()
+
+        elif selection == 5:
+            loop = 0
+            print("Goodbye")
+        break
 
 
-menu()
-selection = int(input("Choose One Option: "))
-
-while selection != 0:
-    if selection == 1:
-        customeroperation()
-        #print("option 1 selected. ")
-    elif selection == 2:
-        #productoperation()
-        print("option 2 selected. ")
-    elif selection == 3:
-        #reports()
-        print("option 3 selected. ")
+if __name__ == '__main__':
     menu()
-    selection = int(input("choose one option"))
-
-print("Goodbye")

@@ -1,4 +1,5 @@
-2130,saf router,router,54,7000
-3130,airtel router,router,-51032,4000
-5130,yu router,router,58,3000
-7130,faiba router,router,56,8000
+2130,saf router,router,47,7000
+3130,airtel router,router,83,4000
+5130,yu router,router,53,3000
+7130,faiba router,router,47,8000
+5538,toyota,lorry,45,200000
