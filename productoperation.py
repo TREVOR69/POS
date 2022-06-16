@@ -34,6 +34,7 @@ def addproduct():
     z = f'{proid},{proname},{protype},{proquantity},{price}\n'
 
     with open('products.txt', 'a') as outfile:
+        print('Product succefully added')
         outfile.write(z)
 
 
@@ -44,8 +45,8 @@ def updateproduct():
         for Line in slist:
             if cid in Line:
                 line_index = slist.index(Line)
-                user_input = input("ENTER NEW PRICE: ")
-                new_price = input("ENTER NEW PRICE")
+                user_input = input("Enter New Quantity: ")
+                new_price = input("Enter New Price: ")
                 k = Line.split(',')
                 k[3] = user_input
                 k[4] = new_price
@@ -53,8 +54,10 @@ def updateproduct():
         slist[line_index] = s.join(k)
 
         with open('products.txt', 'w') as outfile:
+            print('Product succefully Updated')
             for Line in slist:
                 outfile.write(Line)
+
 
 
 def deleteproduct():
@@ -66,5 +69,7 @@ def deleteproduct():
                 line_index = slist.index(Line)
                 slist.pop(line_index)
         with open('products.txt', 'w') as outfile:
+            print('Product succefully deleted')
             for Line in slist:
                 outfile.write(Line)
+

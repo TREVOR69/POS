@@ -3,6 +3,7 @@ from customeroperation import *
 from purchaseoperation import *
 from report import *
 
+
 def menu():
     loop = 1
     while loop:
@@ -28,7 +29,6 @@ def menu():
         elif selection == 5:
             loop = 0
             print("Goodbye")
-        break
 
 
 if __name__ == '__main__':

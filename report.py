@@ -38,12 +38,10 @@ def showallproducts():
         t = z.readlines()
         for Lines in t:
             print(Lines)
-            break
-            #reportmenu()
+            reportmenu()
 
 
 def showallcustomers():
-    lt = []
     with open("customer.txt", "r") as z:
         t = z.readlines()
         for Lines in t:
